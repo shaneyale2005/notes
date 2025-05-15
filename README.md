@@ -2,4 +2,4 @@
 
 --- 
 
-A repository to document key learning insights and progress.
+A repository to document my learning experience.
