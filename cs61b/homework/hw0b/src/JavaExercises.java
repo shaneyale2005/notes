@@ -6,7 +6,11 @@ public class JavaExercises {
     /** Returns an array [1, 2, 3, 4, 5, 6] */
     public static int[] makeDice() {
         // TODO: Fill in this function.
-        return null;
+        int [] a = new int[6];
+        for (int i = 0; i < 6; i++){
+            a[i] = i + 1;
+        }
+        return a;
     }
 
     /** Returns the order depending on the customer.
@@ -15,14 +19,35 @@ public class JavaExercises {
      *  In any other case, return an empty String[] of size 3. */
     public static String[] takeOrder(String customer) {
         // TODO: Fill in this function.
-        return null;
+        if ("Ergun".equals(customer)) {
+            return new String[]{"beyti", "pizza", "hamburger", "tea"};
+        }
+
+        if ("Erik".equals(customer)){
+            return new String[]{"sushi", "pasta", "avocado", "coffee"};
+        }
+        return new String[3];
     }
 
     /** Returns the positive difference between the maximum element and minimum element of the given array.
      *  Assumes array is nonempty. */
     public static int findMinMax(int[] array) {
         // TODO: Fill in this function.
-        return 0;
+        int maxNum = array[0];
+        for (int i = 1; i < array.length; i++){
+            if(array[i] >= maxNum){
+                maxNum = array[i];
+            }
+        }
+
+        int minNum = array[0];
+        for (int i = 1; i < array.length; i++){
+            if(array[i] <= minNum){
+                minNum = array[i];
+            }
+        }
+
+        return maxNum - minNum;
     }
 
     /**
@@ -33,13 +58,20 @@ public class JavaExercises {
       *        - If n is odd, multiply n by 3 and add 1
       *    - Continue this process until n is 1
       */
-    public static List<Integer> hailstone(int n) {
+    public static List< Integer> hailstone(int n) {
         return hailstoneHelper(n, new ArrayList<>());
     }
 
     private static List<Integer> hailstoneHelper(int x, List<Integer> list) {
         // TODO: Fill in this function.
-        return null;
+        list.add(x);
+        if (x == 1){
+            return list;
+        }else if (x % 2 == 0){
+            return hailstoneHelper(x / 2, list);
+        }else {
+            return hailstoneHelper(x * 3 + 1, list);
+        }
     }
 
 }
