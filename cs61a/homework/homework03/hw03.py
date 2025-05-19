@@ -25,6 +25,14 @@ def num_eights(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    
+    # 使用递归实现
+
+    if n == 0:
+        return 0
+    else:
+        return (1 if n % 10 == 8 else 0) + num_eights(n // 10)
+     
 
 
 
@@ -48,6 +56,14 @@ def digit_distance(n):
     True
     """
     "*** YOUR CODE HERE ***"
+
+    # 使用递归实现
+
+    if n < 10:
+        return 0
+    else:
+        return abs((n % 10) - ((n // 10) % 10)) + digit_distance(n // 10)
+
 
 
 
@@ -73,6 +89,16 @@ def interleaved_sum(n, odd_func, even_func):
     True
     """
     "*** YOUR CODE HERE ***"
+    
+    # 使用递归实现
+
+    if n == 0:
+        return 0
+    if n % 2 == 1:
+       return odd_func(n) + interleaved_sum(n - 1, odd_func, even_func)
+    else:
+        return even_func(n) + interleaved_sum(n - 1, odd_func, even_func)
+
 
 
 def next_smaller_dollar(bill):
@@ -110,6 +136,18 @@ def count_dollars(total):
     """
     "*** YOUR CODE HERE ***"
 
+    # 使用递归实现
+
+    def helper(total, bill):
+        if total == 0:
+            return 1
+        if total < 0 or bill is None:
+            return 0
+        return helper(total - bill, bill) + helper(total, next_smaller_dollar(bill))
+    return helper(total, 100)
+
+
+
 
 def next_larger_dollar(bill):
     """Returns the next larger bill in order."""
@@ -146,6 +184,16 @@ def count_dollars_upward(total):
     """
     "*** YOUR CODE HERE ***"
 
+    # 使用递归实现
+
+    def helper(total, bill):
+        if total == 0:
+            return 1
+        if total < 0 or bill is None:
+            return 0
+        return helper(total - bill, bill) + helper(total, next_larger_dollar(bill))
+    return helper(total, 1)
+
 
 def print_move(origin, destination):
     """Print instructions to move a disk."""
@@ -180,6 +228,17 @@ def move_stack(n, start, end):
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
     "*** YOUR CODE HERE ***"
+    
+    # 经典汉诺塔问题，使用递归实现
+    # 汉诺塔问题太经典了，需要掌握使用递归和不使用递归的方法
+
+    if n == 1:
+        print_move(start, end)
+    else:
+        auxiliary = 6 - start - end
+        move_stack(n - 1, start, auxiliary)
+        print_move(start, end)
+        move_stack(n - 1, auxiliary, end)
 
 
 from operator import sub, mul
@@ -195,5 +254,10 @@ def make_anonymous_factorial():
     ...     ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'FunctionDef', 'Recursion'])
     True
     """
-    return 'YOUR_EXPRESSION_HERE'
+
+    # 十分复杂，需要仔细理解
+
+    return (lambda f: (lambda x: f(lambda y: x(x)(y)))(lambda x: f(lambda y: x(x)(y))))(
+        lambda f: lambda n: 1 if n == 0 else mul(n, f(sub(n, 1)))
+    )
 
