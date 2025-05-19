@@ -92,12 +92,16 @@ def interleaved_sum(n, odd_func, even_func):
     
     # 使用递归实现
 
-    if n == 0:
-        return 0
-    if n % 2 == 1:
-       return odd_func(n) + interleaved_sum(n - 1, odd_func, even_func)
-    else:
-        return even_func(n) + interleaved_sum(n - 1, odd_func, even_func)
+    def odd_term(i):
+        if i > n:
+            return 0
+        return odd_func(i) + even_term(i + 1)
+    
+    def even_term(i):
+        if i > n:
+            return 0
+        return even_func(i) + odd_term(i + 1)
+    return odd_term(1)
 
 
 

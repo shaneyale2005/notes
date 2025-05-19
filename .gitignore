@@ -1,2 +1,15 @@
+# macOS 系统文件
 .DS_Store
+
+# IDE/编辑器目录
 .idea/
+
+# Python 缓存文件
+__pycache__/
+*.py[cod]
+*~
+
+# .ok
+.ok_history
+.ok_messages
+.ok_storage.db
