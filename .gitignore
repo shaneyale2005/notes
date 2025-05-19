@@ -9,7 +9,11 @@ __pycache__/
 *.py[cod]
 *~
 
-# .ok
+# .ok 相关文件
+.ok_consent
+.ok_context
+.ok_disabled
 .ok_history
 .ok_messages
 .ok_storage.db
+
