@@ -48,20 +48,18 @@ def parse_mnist(image_filename, label_filename):
                 for MNIST will contain the values 0-9.
     """
     ### BEGIN YOUR CODE
-    with gzip.open(image_filename, "rb") as f:
-        magic_number = int.from_bytes(f.read(4), byteorder='big')
-        num_images = int.from_bytes(f.read(4), byteorder='big') 
-        num_rows = int.from_bytes(f.read(4), byteorder='big') 
-        num_cols = int.from_bytes(f.read(4), byteorder='big') 
-        image_data = f.read()
-        X = np.frombuffer(image_data, dtype = np.uint8).astype(np.float32)
-        X = X.reshape(num_images, num_rows * num_cols)
-        X = X / 255
-    with gzip.open(label_filename, 'rb') as f:
-        magic_number = int.from_bytes(f.read(4), byteorder='big')
-        num_labels = int.from_bytes(f.read(4), byteorder='big')
-        label_data = f.read()
-        y = np.frombuffer(label_data, dtype = np.uint8)
+    with gzip.open(image_filename, "rb") as img_file:
+        magic_num, img_num, row, col = struct.unpack(">4i", img_file.read(16))
+        assert(magic_num == 2051)
+        tot_pixels = row * col
+        X = np.vstack([np.array(struct.unpack(f"{tot_pixels}B", img_file.read(tot_pixels)), dtype=np.float32) for _ in range(img_num)])
+        X -= np.min(X)
+        X /= np.max(X)
+
+    with gzip.open(label_filename, "rb") as label_file:
+        magic_num, label_num = struct.unpack(">2i", label_file.read(8))
+        assert(magic_num == 2049)
+        y = np.array(struct.unpack(f"{label_num}B", label_file.read()), dtype=np.uint8)
 
     return X, y
     ### END YOUR CODE
