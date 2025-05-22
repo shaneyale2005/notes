@@ -48,6 +48,7 @@ def parse_mnist(image_filename, label_filename):
                 for MNIST will contain the values 0-9.
     """
     ### BEGIN YOUR CODE
+    # 注意mnist数据集的格式
     with gzip.open(image_filename, "rb") as img_file:
         magic_num, img_num, row, col = struct.unpack(">4i", img_file.read(16))
         assert(magic_num == 2051)
@@ -113,11 +114,9 @@ def softmax_regression_epoch(X, y, theta, lr = 0.1, batch=100):
         Z = Z / np.sum(Z, axis=1, keepdims=True)
         Y = np.zeros((batch, y.max() + 1))
         Y[np.arange(batch), yy] = 1
-        grad = x.T @ (Z - Y) / batch
+        grad = x.T @ (Z - Y) / batch # 梯度的数学公式
         assert(grad.shape == theta.shape)
         theta -= lr * grad
-
-
     ### END YOUR CODE
 
 
@@ -154,10 +153,10 @@ def nn_epoch(X, y, W1, W2, lr = 0.1, batch=100):
         G2 = G2 / np.sum(G2, axis = 1, keepdims=True)
         Y = np.zeros(batch, y.max() + 1)
         Y[np.arange(batch), yy] = 1
-        G2 -= Y
+        G2 -= Y # softmax输出的概率分布
         G1 = np.zeros_like(z1)
-        G1[z1 > 0] = 1
-        G1 = G1 * (G2 @ W2.T)
+        G1[z1 > 0] = 1 # 构建Relu函数的导数
+        G1 = G1 * (G2 @ W2.T) # 构建Relu函数的导数
         grad1 = X.T @ G1 / batch
         grad2 = z1.T @ G2 / batch
         W1 -= lr * grad1
