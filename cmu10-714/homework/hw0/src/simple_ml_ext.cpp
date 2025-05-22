@@ -5,6 +5,20 @@
 
 namespace py = pybind11;
 
+// 这里是抄的大佬的代码
+void mat_mul(const float* X, const float* Y, float* Z, int m, int n, int k){
+    // X为m行n列的矩阵
+    // Y为n行k列的矩阵
+    // Z为m行k列的矩阵
+    for (int i = 0; i < m; i++){
+        for (int j = 0; j < k; j++){
+            Z[i * k + j] = 0;
+            for (int s = 0; s < n; s++){
+                Z[i * k + j] += X[i * n + s] * Y[s * k  +j];
+            }
+        }
+    }
+}
 
 void softmax_regression_epoch_cpp(const float *X, const unsigned char *y,
 								  float *theta, size_t m, size_t n, size_t k,
@@ -34,6 +48,36 @@ void softmax_regression_epoch_cpp(const float *X, const unsigned char *y,
 
     /// BEGIN YOUR CODE
 
+
+    int iterations = (m + batch - 1) / batch;
+    for (int iter = 0; iter < iterations; iter++){
+        const float* x = &X[iter * batch * n];
+        float* Z = new float [batch * k];
+        mat_mul(x, theta, Z, batch, n, k);
+        for (int i = 0; i < batch * k; i++) Z[i] = exp(Z[i]);
+        for (int i = 0; i < batch; i++){
+            float sum = 0;
+            for (int j = 0; j < k; j++) sum += Z[i * k + j];
+            for (int j = 0; j < k; j++) Z[i * k + j] /= sum;
+        }
+
+        for (int i = 0 ; i < batch; i++) Z[i * k + y[iter * batch + i]] -= 1;
+        float* x_T = new float[n * batch];
+        float* grad = new float[n* k];
+        for (int i = 0; i < batch; i++){
+            for (int j = 0; j < n; j++){
+                x_T[j * batch + i] = x[i * n + j];
+            }
+        }
+        mat_mul(x_T, Z, grad, n, batch, k);
+        for(int i = 0; i < n * k; i++){
+            theta[i] -= lr / batch * grad[i];
+        }
+        delete [] Z;
+        delete [] x_T;
+        delete [] grad;
+
+    }
     /// END YOUR CODE
 }
 
