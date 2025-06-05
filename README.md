@@ -1,3 +1,3 @@
 # Notes
 
-My learning experience
+My self-learning experience
