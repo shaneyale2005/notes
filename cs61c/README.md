@@ -1,1 +1,1 @@
-# [CS61C](https://cs61c.org/sp25/)
+# [CS61C Spring 2025](https://cs61c.org/sp25/)
