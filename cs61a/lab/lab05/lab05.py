@@ -110,6 +110,17 @@ def repeated(t, k):
     """
     assert k > 1
     "*** YOUR CODE HERE ***"
+    current = next(t)
+    count = 1
+    for x in t:
+        if x == current:
+            count += 1
+            if count == k:
+                return current
+        else:
+            current = x
+            count = 1
+
 
 
 def sprout_leaves(t, leaves):
@@ -146,6 +157,13 @@ def sprout_leaves(t, leaves):
           2
     """
     "*** YOUR CODE HERE ***"
+    if len(branches(t)) == 0:
+        new_branches = [tree(leaf) for leaf in leaves]
+        return tree(label(t), new_branches)
+    else:
+        # 如果当前节点不是叶子结点，就递归处理所有的节点
+        updated_branches = [sprout_leaves(b, leaves) for b in branches(t)]
+        return tree(label(t), updated_branches)
 
 
 def partial_reverse(s, start):
@@ -161,7 +179,13 @@ def partial_reverse(s, start):
     [1, 2, 7, 6, 5, 3, 4]
     """
     "*** YOUR CODE HERE ***"
-
+    n = len(s)
+    left = start
+    right = n - 1
+    while left < right:
+        s[left], s[right] = s[right], s[left]
+        left += 1
+        right -= 1
 
 
 # Tree Data Abstraction
