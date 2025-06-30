@@ -20,3 +20,4 @@ __pycache__/
 # vscode相关配置文件
 .vscode/
 
+node_modules/
