@@ -23,3 +23,5 @@ __pycache__/
 node_modules/
 
 cs336/assignment/assignment1-basics/data/
+**/.venv/
+cs336/assignment/assignment1-basics/cs336_basics.egg-info
