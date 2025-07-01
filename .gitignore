@@ -21,3 +21,5 @@ __pycache__/
 .vscode/
 
 node_modules/
+
+cs336/assignment/assignment1-basics/data/
