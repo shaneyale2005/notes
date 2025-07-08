@@ -1,6 +1,6 @@
 # Notes
 
-## My self-learning experience.
+## My self-learning experience
 
 ### [CS61A](https://github.com/shaneyale2005/CS61A)
 
