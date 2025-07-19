@@ -1,39 +1,19 @@
-# Notes
+# My Self-Learning Experience
 
-## My self-learning experience
+### [cs61a](https://github.com/shaneyale2005/cs61a)
 
-### [CS61A](https://github.com/shaneyale2005/CS61A)
+### [cs61b](https://github.com/shaneyale2005/cs61b)
 
-UCB CS61A课程
+### [cs61c](https://github.com/shaneyale2005/cs61c)
 
-### [CS61B](https://github.com/shaneyale2005/CS61B)
+### [cs336](https://github.com/shaneyale2005/cs336)
 
-UCB CS61B课程
+### [mit6_s081](https://github.com/shaneyale2005/mit6_s081)
 
-### [CS61C](https://github.com/shaneyale2005/CS61C)
+### [njuos2025](https://github.com/shaneyale2005/njuos2025)
 
-UCB CS61C课程
+### [cmu10_714](https://github.com/shaneyale2005/cmu10_714)
 
-### [CS336](https://github.com/shaneyale2005/CS336)
+### [leetcode](https://github.com/shaneyale2005/leetcode)
 
-斯坦福大学CS336课程，从零构建大语言模型
-
-### [MIT6.S081](https://github.com/shaneyale2005/MIT6.S081)
-
-MIT操作系统课程
-
-### [NJUOS2025](https://github.com/shaneyale2005/NJUOS2025)
-
-南京大学2025年春季操作系统课程
-
-### [CMU10-714](https://github.com/shaneyale2005/CMU10-714)
-
-CMU机器学习系统课程
-
-### [Leetcode](https://github.com/shaneyale2005/Leetcode)
-
-Leetcode刷题
-
-### [Cuda](https://github.com/shaneyale2005/Cuda)
-
-学习Cuda编程
+### [cuda](https://github.com/shaneyale2005/cuda)
