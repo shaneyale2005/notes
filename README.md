@@ -1,19 +1,19 @@
-# My Self-Learning Experience
+# 🚀 My Self-Learning Experience
 
-### [cs61a](https://github.com/shaneyale2005/cs61a)
+### [CS61A](https://github.com/shaneyale2005/cs61a)
 
-### [cs61b](https://github.com/shaneyale2005/cs61b)
+### [CS61B](https://github.com/shaneyale2005/cs61b)
 
-### [cs61c](https://github.com/shaneyale2005/cs61c)
+### [CS61C](https://github.com/shaneyale2005/cs61c)
 
-### [cs336](https://github.com/shaneyale2005/cs336)
+### [CS336](https://github.com/shaneyale2005/cs336)
 
-### [mit6_s081](https://github.com/shaneyale2005/mit6_s081)
+### [MIT6.S081](https://github.com/shaneyale2005/mit6.s081)
 
-### [njuos2025](https://github.com/shaneyale2005/njuos2025)
+### [NJUOS2025](https://github.com/shaneyale2005/njuos2025)
 
-### [cmu10_714](https://github.com/shaneyale2005/cmu10_714)
+### [CMU10_714](https://github.com/shaneyale2005/cmu10_714)
 
-### [leetcode](https://github.com/shaneyale2005/leetcode)
+### [Leetcode](https://github.com/shaneyale2005/leetcode)
 
-### [cuda](https://github.com/shaneyale2005/cuda)
+### [Cuda](https://github.com/shaneyale2005/cuda)
